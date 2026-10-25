@@ -18,6 +18,7 @@ import { ProjectDocs } from './components/OfficialDocs/ProjectDocs';
 import { StatsView } from './components/StatsView/StatsView';
 import { SupabaseModal } from './components/SupabaseModal';
 import { Footer } from './components/Footer';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 const AppContent: React.FC = () => {
   const { activeTab } = useApp();
@@ -52,10 +53,12 @@ const AppContent: React.FC = () => {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <AppProvider>
-        <AppContent />
-      </AppProvider>
-    </AuthProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+        <AppProvider>
+          <AppContent />
+        </AppProvider>
+      </AuthProvider>
+    </ErrorBoundary>
   );
 }
