@@ -26,13 +26,13 @@ const AppContent: React.FC = () => {
   const [isSupabaseOpen, setIsSupabaseOpen] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-subtle-grid ambient-glow transition-colors">
       <Navbar 
         onOpenAuth={() => setIsAuthOpen(true)} 
         onOpenSupabase={() => setIsSupabaseOpen(true)} 
       />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <main className="flex-1 max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-8 lg:py-10">
         {activeTab === 'home' && <HomeHero onOpenAuth={() => setIsAuthOpen(true)} />}
         {activeTab === 'teacher' && <TeacherHub />}
         {activeTab === 'student' && <StudentAssistant />}
